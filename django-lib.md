@@ -14,7 +14,7 @@
 
 # django contrib postgres
 - from django.contrib.postgres.fields import JSONField <br/>
-: JSON 인코딩된 데이터를 저장하는 필드.
+: JSON 인코딩된 데이터를 저장하는 필드. 
 - from django.contrib.postgres.search import SearchVectorField, SearchVector
 
 # django db models
