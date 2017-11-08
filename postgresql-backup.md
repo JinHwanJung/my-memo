@@ -19,8 +19,8 @@
  + 2. pg_dump -d billing -F c -C> billingdb.bak # 원하는 데이터베이스를 따로 빼낸다.
  + 3. 복원 시, 원장 테이블이 있을 경우 또는 없을 경우를 나눠 복원수행.
  + 4. 여러 클러스터가 있고 이 클러스터에는 여러 DB가 있는 경우. 
-  + : pg_dump는 한 번에 하나의 데이터베이스 에서만 작동한다. 때문에 스크립트를 작성함.
-   + ```
+  + : pg_dump는 한 번에 하나의 데이터베이스 에서만 작동한다. 때문에 스크립트를 작성.
+```
     <예시>
     printf "Start: date" >> $backupDir/$dt/backup.log
     pg_dumpall -g > /$backupDir/$dt/globals.sql
@@ -31,8 +31,8 @@
     pg_dump -v -Fp -b -C $db > /$backupDir/$dt/$db.sql 2>> /$backupDir/$dt/backup.log
     done
     printf "Complete: date" >> $backupDir/$dt/backup.log
-    ```
-[출처](https://www.openscg.com/2016/10/dont-forget-the-globals/ "dont-forget-the-globals")
+```
+[출처:"Don't forget the globals - pg_dump"](https://www.openscg.com/2016/10/dont-forget-the-globals/ "dont-forget-the-globals")
 
 1. DB의 덤프파일 추출
 **sudo -u postgres pg_dump -h [호스트] -p [포트] -U [DB유저명] -d [DB명] -Fc > [덤프(백업) 파일명]**
@@ -56,7 +56,7 @@ sudo -u postgres psql -h localhost -p 15432 -f ~/바탕화면/20171107.dump
 
 3. local postgresql 에서 작업 DROP DB & CREATE DB
  + drop db 
- + ```
+ ```
  sudo -u postgres psql -h localhost -p 15432
  DROP DATABASE danbi_db;
  DROP DATABASE test_danbi_db;
@@ -65,10 +65,10 @@ sudo -u postgres psql -h localhost -p 15432 -f ~/바탕화면/20171107.dump
  DROP DATABASE test_danbi_db_gw2;
  DROP DATABASE test_danbi_db_gw3;
  DROP USER danbi_user;
- ```
+```
 
  + create db
- + ```
+```
  CREATE USER danbi_user WITH PASSWORD 'abcdefg';
  ALTER ROLE danbi_user SET client_encoding TO 'utf8';
  ALTER ROLE danbi_user SET default_transaction_isolation TO 'read committed';
@@ -76,7 +76,7 @@ sudo -u postgres psql -h localhost -p 15432 -f ~/바탕화면/20171107.dump
  ALTER ROLE danbi_user WITH SUPERUSER;
  CREATE DATABASE danbi_db;
  GRANT ALL PRIVILEGES ON DATABASE danbi_db TO danbi_user;
- ```
+```
 
 4. 스크립트로 실행
 ```
