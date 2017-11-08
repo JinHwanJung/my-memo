@@ -4,33 +4,33 @@
 
 + pg_dump 
 : 실행중인 트래픽에 영향을 주지 않고 실시간으로 데이터베이스 백업을 얻을 수 있는 도구.
- + 문제점
-  + 1. 테이블 공간, 그룹 또는 사용자를 포함하지 않는다.
-  + 2. 클러스터 / 인스턴스 내 데이터베이스 중 하나만 덤프한다.  
- + 해결
-  + 1. 테이블공간, 그룹, 유저에 대한 해결책 : pg_dump -g # dump only global objects (users, groups, tablespaces)
+  + 문제점
+    + 1. 테이블 공간, 그룹 또는 사용자를 포함하지 않는다.
+    + 2. 클러스터 / 인스턴스 내 데이터베이스 중 하나만 덤프한다.  
+  + 해결
+    + 1. 테이블공간, 그룹, 유저에 대한 해결책 : pg_dump -g # dump only global objects (users, groups, tablespaces)
 
 + pg_dumpall
- + : 기본적으로 클러스터의 모든 객체를 덤프하여 모든 데이터를 일반 텍스트 모드로 덤프한다.
-  + pg_dump -g : **전역 오브젝트**만 덤프한다.
+  + : 기본적으로 클러스터의 모든 객체를 덤프하여 모든 데이터를 일반 텍스트 모드로 덤프한다.
+    + pg_dump -g : **전역 오브젝트**만 덤프한다.
 
 + pg_dump & pg_dumpall 도구 사용 전략
- + 1. pg_dumpall -g> globals.sql # 글로벌 오브젝트를 따로 저장하고,
- + 2. pg_dump -d billing -F c -C> billingdb.bak # 원하는 데이터베이스를 따로 빼낸다.
- + 3. 복원 시, 원장 테이블이 있을 경우 또는 없을 경우를 나눠 복원수행.
- + 4. 여러 클러스터가 있고 이 클러스터에는 여러 DB가 있는 경우. 
-  + : pg_dump는 한 번에 하나의 데이터베이스 에서만 작동한다. 때문에 스크립트를 작성.
+  + 1. pg_dumpall -g> globals.sql # 글로벌 오브젝트를 따로 저장하고,
+  + 2. pg_dump -d billing -F c -C> billingdb.bak # 원하는 데이터베이스를 따로 빼낸다.
+  + 3. 복원 시, 원장 테이블이 있을 경우 또는 없을 경우를 나눠 복원수행.
+  + 4. 여러 클러스터가 있고 이 클러스터에는 여러 DB가 있는 경우. 
+    + : pg_dump는 한 번에 하나의 데이터베이스 에서만 작동한다. 때문에 스크립트를 작성.
 ```
-    <예시>
-    printf "Start: date" >> $backupDir/$dt/backup.log
-    pg_dumpall -g > /$backupDir/$dt/globals.sql
-    dbs=psql -t -c "select array_to_string(ARRAY(select datname from pg_database),' ')" | sed -e '/^$/d' | sed -e 's/^[ \t]//g'
-    for db in $dbs
-    do
-    printf "Performing backup of: $db\n"
-    pg_dump -v -Fp -b -C $db > /$backupDir/$dt/$db.sql 2>> /$backupDir/$dt/backup.log
-    done
-    printf "Complete: date" >> $backupDir/$dt/backup.log
+<예시>
+printf "Start: date" >> $backupDir/$dt/backup.log
+pg_dumpall -g > /$backupDir/$dt/globals.sql
+dbs=psql -t -c "select array_to_string(ARRAY(select datname from pg_database),' ')" | sed -e '/^$/d' | sed -e 's/^[ \t]//g'
+for db in $dbs
+do
+printf "Performing backup of: $db\n"
+pg_dump -v -Fp -b -C $db > /$backupDir/$dt/$db.sql 2>> /$backupDir/$dt/backup.log
+done
+printf "Complete: date" >> $backupDir/$dt/backup.log
 ```
 [출처:"Don't forget the globals - pg_dump"](https://www.openscg.com/2016/10/dont-forget-the-globals/ "dont-forget-the-globals")
 
@@ -55,27 +55,27 @@ sudo -u postgres psql -h localhost -p 15432 -f ~/바탕화면/20171107.dump
 ```
 
 3. local postgresql 에서 작업 DROP DB & CREATE DB
- + drop db 
- ```
- sudo -u postgres psql -h localhost -p 15432
- DROP DATABASE danbi_db;
- DROP DATABASE test_danbi_db;
- DROP DATABASE test_danbi_db_gw0;
- DROP DATABASE test_danbi_db_gw1;
- DROP DATABASE test_danbi_db_gw2;
- DROP DATABASE test_danbi_db_gw3;
- DROP USER danbi_user;
+  + drop db 
+```
+sudo -u postgres psql -h localhost -p 15432
+DROP DATABASE danbi_db;
+DROP DATABASE test_danbi_db;
+DROP DATABASE test_danbi_db_gw0;
+DROP DATABASE test_danbi_db_gw1;
+DROP DATABASE test_danbi_db_gw2;
+DROP DATABASE test_danbi_db_gw3;
+DROP USER danbi_user;
 ```
 
- + create db
+  + create db
 ```
- CREATE USER danbi_user WITH PASSWORD 'abcdefg';
- ALTER ROLE danbi_user SET client_encoding TO 'utf8';
- ALTER ROLE danbi_user SET default_transaction_isolation TO 'read committed';
- ALTER ROLE danbi_user SET TIMEZONE TO 'Asia/Seoul';
- ALTER ROLE danbi_user WITH SUPERUSER;
- CREATE DATABASE danbi_db;
- GRANT ALL PRIVILEGES ON DATABASE danbi_db TO danbi_user;
+CREATE USER danbi_user WITH PASSWORD 'abcdefg';
+ALTER ROLE danbi_user SET client_encoding TO 'utf8';
+ALTER ROLE danbi_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE danbi_user SET TIMEZONE TO 'Asia/Seoul';
+ALTER ROLE danbi_user WITH SUPERUSER;
+CREATE DATABASE danbi_db;
+GRANT ALL PRIVILEGES ON DATABASE danbi_db TO danbi_user;
 ```
 
 4. 스크립트로 실행
@@ -101,7 +101,7 @@ docker cp e9b43642246e:/tmp/20171107.dump .
 7. 리눅스 용량확인
 df -h 
 
-8. db 예상 사이즈??
+8. db 예상 사이즈 인듯
 ```
 SELECT pg_size_pretty(pg_database_size('danbi_db'));
 ```
