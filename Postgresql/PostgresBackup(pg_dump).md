@@ -1,18 +1,17 @@
 
 # POSTGRES DB DUMP
 
-
 + pg_dump 
 : 실행중인 트래픽에 영향을 주지 않고 실시간으로 데이터베이스 백업을 얻을 수 있는 도구.
   + 문제점
     + 1. 테이블 공간, 그룹 또는 사용자를 포함하지 않는다.
     + 2. 클러스터 / 인스턴스 내 데이터베이스 중 하나만 덤프한다.  
   + 해결
-    + 1. 테이블공간, 그룹, 유저에 대한 해결책 : pg_dump -g # dump only global objects (users, groups, tablespaces)
+    + 1. 테이블공간, 그룹, 유저에 대한 해결책 : pg_dumpall -g # dump only global objects (users, groups, tablespaces)
 
 + pg_dumpall
   + : 기본적으로 클러스터의 모든 객체를 덤프하여 모든 데이터를 일반 텍스트 모드로 덤프한다.
-    + pg_dump -g : **전역 오브젝트**만 덤프한다.
+    + pg_dumpall -g : **전역 오브젝트**만 덤프한다.
 
 + pg_dump & pg_dumpall 도구 사용 전략
   + 1. pg_dumpall -g> globals.sql # 글로벌 오브젝트를 따로 저장하고,
@@ -47,7 +46,7 @@ printf "Complete: date" >> $backupDir/$dt/backup.log
 ```
 sudo -u postgres pg_restore -h localhost -p 15432  -j 8 -d danbi_db backup.dump
 ```
-- j 옵션을 사용하면 복원작업을 쓰레드로 돌릴 수 있다. (고려해야할 것은 하드웨어의 스펙이고 깊은 내용은 문서 및 하드웨어 지식이 필요함. **최적은 8로 추천한다고 함. 출처링크참조***.)
+- j 옵션을 사용하면 복원작업을 쓰레드로 돌릴 수 있다. (고려해야할 것은 하드웨어의 스펙이고 깊은 내용은 문서 및 하드웨어 지식이 필요함. **최적은 8로 추천한다고 함. 출처링크참조**)
 
 - 아래 코드는 압축이 안되어 있는 덤프파일 복원방법 
 ```
