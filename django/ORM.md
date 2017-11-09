@@ -18,7 +18,6 @@
 
 ### Create
 > Model.objects.create(username='test', name='정진환', pass='1234')
-- 
 
 
 ### Filter
@@ -88,3 +87,33 @@
 - SQL에서 select에 해당한다.
 - value를 사용하지 않으면 sql의 select * 와 같이 전체를 출력한다
 > value = Model.objects.values('pk') # query set 타입으로 pk만 출력.
+
+### Aggregate
+- sql에서 max, min, count과 같은 기능. 단일행을 출력해줌.
+- 단일행을 반환하므로, 다른 method와 같이 사용 못함.
+> from django.db.models import Max
+> value = Model.objects.aggregate(temp_name=Max('pk'))
+> print(value['temp_name'])
+,
+> from django.db.models import Max
+> from django.db.models.functions import Coalesce
+> value = Model.objects.aggregate(temp_name=Coalesce(Max('pk'),10000))
+> print(value['temp_name'])
+
+## Insert
+
+### save()
+> instance.name = temp_name
+> instance.save()
+
+### objects.create()
+> Model.objects.create(name='temp')
+- objects.create()를 사용할 경우 .save()를 할 필요 없이 바로 저장된다.
+
+### DRF에서 insert
+> serializer = CommonTaxInSerializer(data=json_format_data, partial=True)
+> if serializer.is_valid()
+> serializer.save()
+- partial은 테이블 내의 일부분만 insert할 때, 
+- partial을 제외하고 serializer에 명시한 값 중 일부분만 insert하려고 하면 에러
+- .save() 하기 위해선 validation을 한 다음 진행
