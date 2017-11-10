@@ -82,7 +82,7 @@
 > value = Model.objects.order_by('pk') # 오름차순 정렬
 
 
-### Value
+### Values
 > Model.objects.values() 
 - SQL에서 select에 해당한다.
 - value를 사용하지 않으면 sql의 select * 와 같이 전체를 출력한다
