@@ -29,6 +29,9 @@ libreadline-dev libsqlite3-dev wget curl llvm
 >$pyenv shell 3.6.2
 >$python --version #현재 버전 확인.
 
+- 설치한 파이썬 버전삭제
+>$~/.env/versions/ 아래에서 해당버전 삭제(rm -rmf ~/.pyenv/versions/django-dev)
+
 # virtualenv
 ## "Virtual Python Environment Builder"
 ### 로컬에 다양한 파이썬 환경울 구축. pip install 을 통해서 설치하는 패키지들에 대한 의존성을 해결.
