@@ -117,3 +117,38 @@
 - partial은 테이블 내의 일부분만 insert할 때, 
 - partial을 제외하고 serializer에 명시한 값 중 일부분만 insert하려고 하면 에러
 - .save() 하기 위해선 validation을 한 다음 진행
+
+
+## Update
+
+### 단일 업데이트
+> data = Model.objects.get(pk=pk)
+> data.name = 'test'
+> data.save()
+
+### 다중 업데이트
+> Model.objects.filter(name='test', age='20').update(**update_dic)
+
+
+# DRF에서 사용
+
+## 단일 업데이트
+> instance = Model.objects.get(pk=pk)
+> serializer = Model(instance, data = json_data)
+> if serializer.is_valid():
+>   serializer.save()
+- 업데이트 할 단일행을 구한 후, data에 변경할 값의 json 값을 넣어서 업데이트.
+
+## 다중 업데이트
+> queryset = Model.objects.all()
+> serializer = BookSerializer(queryset, many=True)
+> if serializer.is_valid():
+>    serializer.save()
+
+## Delete(장고, DRF 둘다 같은 방식)
+### 단일 삭제
+> instance = Model.objects.get(pk=pk)
+> instance.delete()
+
+### 다죽삭제
+> Model.objects.filter(name='test', age='20').delete()
