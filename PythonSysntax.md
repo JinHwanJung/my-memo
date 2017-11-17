@@ -86,3 +86,5 @@ with controlled_execution() as thing:
 - 파이썬에서 다중상속의 경우, [class D(B,C)] => 왼쪽에서 오른쪽 순서로 메서드를 찾는다.
 - 복잡한 다중상속의 경우, overwrite에 대한 순서를 추적할 때는 mro() 함수를 사용하여 클래스가 파생된 순서의 목록을 얻어서 확인.
 - 메서드 탐색 순서(Method Resolution Order, MRO)
+---
+# 

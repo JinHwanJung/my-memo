@@ -152,3 +152,10 @@
 
 ### 다죽삭제
 > Model.objects.filter(name='test', age='20').delete()
+
+---
+OR 연산자 사용하여 쿼리
+```python
+from django.db.models import Q
+Model.objects.filter(Q(first_name='jung') | Q(first_name='test'))
+```
