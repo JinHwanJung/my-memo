@@ -68,3 +68,8 @@ libreadline-dev libsqlite3-dev wget curl llvm
 3. development 환경으로 설정 : pip install -r requirements-dev.txt
 4. production 환경으로 설정 : pip install -r requirements.txt 으로 쉘 명령 하나로 환경 설정
 
+# postgresql 9.6 install
+sudo add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main"
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install postgresql-9.6
