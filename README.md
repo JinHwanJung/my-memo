@@ -1,11 +1,15 @@
 # MyReference
 
-- [MyReference](#MyReference)
+- Python Ref
     - [파이썬 개발환경 세팅](#python-environment)
     - [파이썬 개발환경 공유](#python-development-dependency-management)
-    - [Postgresql Install](#postgresql-install)
+- Django Ref
     - [CookieCutter-Django](#cookie-cutter-django)
+- DB Ref
+    - [Postgresql Install](#postgresql-install)
     - [Postgresql DB Dump](#postgresql-db-dump)
+- Tutorial Ref
+    - [Tutorial HTML&CSS](#tutorial-html-and-css)
 
 
 # Python Environment 
@@ -239,3 +243,25 @@ docker cp [container id]:[가져올 파일의 경로 + 파일] [가져와서 저
 ```
 SELECT pg_size_pretty(pg_database_size('db'));
 ```
+# Tutorial Html and Css
+1. 기초부터 쌓자! HTML5, CSS3 정독
+    * [기초튜토리얼 블로그 - poiemaweb](http://poiemaweb.com/)
+2. 핵심 요소들의 개념과 원리를 빔캠프로 한번 더 쌓기
+    * [빔캠프 Youtube](https://www.youtube.com/channel/UCvx57s_ZBt5VG4fvlStiq2g/playlists)
+3. 실전에 한발짝
+    * [웹페이지실전 - Seoul Wiz](https://www.youtube.com/watch?v=FnZhPxxJtkU&index=14&list=PLieE0qnqO2kRmnv2us27qoCUl2wXJ9-Q0)
+
+4. 이제부터 더 탄탄하게! 기초 + 표준 + 실전<br/>
+
+    3.1 [웹표준 사이트 만들기 - Webstoryboy Webs](https://www.youtube.com/watch?v=i27cyOHfJCw&list=PL4UVBBIc6giKkfYN_2TVPgbMpd87lJEfg)<br/>
+    3.2 [하나카드 기업사이트 따라만들기 - Webstoryboy Webs](https://www.youtube.com/watch?v=EYBV2EnQkyQ&list=PL4UVBBIc6giKyLYPtaIUSgKoWa2PeEwLn)<br/>
+    3.3 [반응형 사이트 만들기 - Webstoryboy Webs](https://www.youtube.com/watch?v=Br95hhB8xgE&list=PL4UVBBIc6giLZFjhh-UXovCCVlP57YnzA)
+  
+
+5. 영감을 주는 웹페이지를 둘러보면서 스스로 프로젝트 하기<br/>
+[영감을 웹페이지 저장소]
+    * [KoreaWebDesign](http://koreawebdesign.com/site/)
+    * [Responsive Web Design - RWDB](http://rwdb.kr/)
+
+6. 디자이너와 협업하기 위해 디자인도 좀 배우기<br/>
+[웹디자인 포토샾 Youtube](https://www.youtube.com/channel/UCxRnfrmJAkRLarzeBJETB5g/playlists)
