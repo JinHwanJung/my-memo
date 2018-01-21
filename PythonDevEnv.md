@@ -76,8 +76,8 @@ libreadline-dev libsqlite3-dev wget curl llvm
 
 ## cookie cutter
 
-pyenv virtualenv 3.6.2 global
-pyenv shell global
-pip install 'django<2.0'
-pip install cookiecutter
+- pyenv virtualenv 3.6.2 global
+- pyenv shell global
+- pip install 'django<2.0'
+- pip install cookiecutter
 
