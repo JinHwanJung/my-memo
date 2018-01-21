@@ -73,3 +73,11 @@ libreadline-dev libsqlite3-dev wget curl llvm
 2. wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 3. sudo apt-get update
 4. sudo apt-get install postgresql-9.6
+
+## cookie cutter
+
+pyenv virtualenv 3.6.2 global
+pyenv shell global
+pip install 'django<2.0'
+pip install cookiecutter
+
