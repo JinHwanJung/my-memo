@@ -8,6 +8,7 @@
 - DB Ref
     - [Postgresql Install](#postgresql-install)
     - [Postgresql DB Dump](#postgresql-db-dump)
+    - [Setting for Postgresql in Django](#Setting-for-Postgresql-in-Django)
 - Tutorial Ref
     - [Tutorial HTML&CSS](#tutorial-html-and-css)
 
@@ -243,6 +244,33 @@ docker cp [container id]:[가져올 파일의 경로 + 파일] [가져와서 저
 ```
 SELECT pg_size_pretty(pg_database_size('db'));
 ```
+
+# Setting for Postgresql in Django
+- 데이터베이스 url로 연결 형식
+```
+연동 시 필요 패키지
+pip install psycopg2
+```
+```
+DATABASES = {
+    'default': env.db('DATABASE_URL', default='postgres://유저명:패스워드@호스트:포트/데이터베이스명'),
+}
+
+또는
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '데이터베이스_이름',
+        'USER': '유저_이름',
+        'PASSWORD': '패스워드',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+```
+- 참고 URL : [how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04)
+
 # Tutorial Html and Css
 1. 기초부터 쌓자! HTML5, CSS3 정독
     * [기초튜토리얼 블로그 - poiemaweb](http://poiemaweb.com/)
