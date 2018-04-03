@@ -5,6 +5,8 @@
     - [파이썬 개발환경 공유](#python-development-dependency-management)
 - Django Ref
     - [CookieCutter-Django](#cookie-cutter-django)
+    - [pytest 세팅](#pytest)
+    - [Django Settings 배포 환경마다 다르게 세팅하기](#django-settings-module)
 - DB Ref
     - [Postgresql Install](#postgresql-install)
     - [Postgresql DB Dump](#postgresql-db-dump)
@@ -133,7 +135,46 @@ sudo apt-get install postgresql-9.6
 cookiecutter https://github.com/pydanny/cookiecutter-django
 ```
 
-# Postgresql DB Dump
+## pytest
+1. 3rd parth 설치
+- pip install pytest
+- pip install pytest-django
+- pip install django-test-plus
+- pip install pytest-cov
+- pip install flake8
+- pip install pyflakes
+- pip install codecov
+
+2. pytest.ini 파일
+```
+[pytest]
+DJANGO_SETTING_MODULE = flower_on_you.settings_unittest
+python_files=test*.py
+norecursedirs = ...
+addopts = --reuse-db
+
+```
+
+3. 아래 모듈을 상속받아서 테스트케이스 작성
+- django.test import TestCase
+
+4. 테스트수행
+- "py.test <테스트파일경로>"
+
+
+## DJANGO SETTINGS MODULE
+- unittest, development, production, base 등 settings file 분리
+```
+ex) settings_unittest.py, settings_production.py, settings_base.py, ...
+```
+- manage.py 로드
+```python
+DEPLOYMENT_LEVEL = os.environ.setdefault("DEPLOYMENT_LEVEL", "development")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project_name.settings_{dlevel}".format(dlevel=DEPLOYMENT_LEVEL))
+```
+
+
+## Postgresql DB Dump
 
 * pg_dump<br/>
 실행중인 트래픽에 영향을 주지 않고 실시간으로 데이터베이스 백업을 얻을 수 있는 도구
