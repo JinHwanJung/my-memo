@@ -336,23 +336,29 @@ DATABASES = {
 [웹디자인 포토샾 Youtube](https://www.youtube.com/channel/UCxRnfrmJAkRLarzeBJETB5g/playlists)
 
 # Pycharm Shortcuts
-   - 클래스 관련
-   ```
-   Ctrl + H: 클래스 상속 순서 나열
-      => 클래스.mro() 메소드 찾는 순서와 동일하게 상속순서 나타내짐
-      => 왼쪽 사이드메뉴 structure 와 함께 보면 구조파악 잘됨
-   Ctrl + O: 오버라이드 메서드 나열 및 생성 헬퍼
-   Ctrl + F12: 현재 소스파일 안의 클래스 및 클래스 멤버표시, 네비 헬퍼 
-   Ctrl + N: 클래스 이름으로 찾기
-   Ctrl + B: 현재 커서에 있는 클래스 또는 메서드 안으로 들어가기
-   ```
-   - 편집관련
-   ```
-   Ctrl + X 또는 Ctrl + Y: 한줄삭제
-   Ctrl + D: 현재 선택된 줄 내용 복사하여 아래에 삽입
-   ```
-   - 메서드 관련
-   ```
-   Ctrl + P: 메서드호출 작성시, 파라미터 변수 위치 및 키워드 힌트 표시
-   Ctrl + J: 파이썬의 다양한 표현식 문법 생성 헬퍼
-   ```
+- 구조관련
+```
+Ctrl + <F12>: Structure Popup
+Ctrl + Alt + U: Show Diagram Pop-up
+Ctrl + Q: Quick Documentation Lookup
+```
+- 클래스 관련
+```
+Ctrl + H: 클래스 상속 순서 나열
+    => 클래스.mro() 메소드 찾는 순서와 동일하게 상속순서 나타내짐
+    => 왼쪽 사이드메뉴 structure 와 함께 보면 구조파악 잘됨
+Ctrl + O: 오버라이드 메서드 나열 및 생성 헬퍼
+Ctrl + F12: 현재 소스파일 안의 클래스 및 클래스 멤버표시, 네비 헬퍼 
+Ctrl + N: 클래스 이름으로 찾기
+Ctrl + B: 현재 커서에 있는 클래스 또는 메서드 안으로 들어가기
+```
+- 편집관련
+```
+Ctrl + X 또는 Ctrl + Y: 한줄삭제
+Ctrl + D: 현재 선택된 줄 내용 복사하여 아래에 삽입
+```
+- 메서드 관련
+```
+Ctrl + P: 메서드호출 작성시, 파라미터 변수 위치 및 키워드 힌트 표시
+Ctrl + J: 파이썬의 다양한 표현식 문법 생성 헬퍼
+```
