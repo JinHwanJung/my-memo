@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+function trans(){
+	var str = document.getElementById("hangul").value;
+	
+	document.getElementById("unicode").value = replaceAll(escape(str),"%","\\");	
+}
+
+function detrans(){
+	var str = document.getElementById("unicode2").value;
+	
+	document.getElementById("hangul2").value = unescape(replaceAll(str,"\\","%"));	
+}
+function replaceAll(strTemp, strValue1, strValue2){
+	
+    while(1){
+        if( strTemp.indexOf(strValue1) != -1 )
+            strTemp = strTemp.replace(strValue1, strValue2);
+        else
+            break;
+    }
+    return strTemp;
+}
+</script>
+한글 -> 유니코드
+<input type="text" name="hangul" id="hangul" onkeyDown="JavaScript:if(event.keyCode==13){trans();}">
+<input type="button" name="aa" value="변환" onclick="trans()">
+결과 :<input type="text" name="unicode" id="unicode" size="50">
+<br><br>
+유니코드 -> 한글
+<input type="text" name="unicode2" id="unicode2" onkeyDown="JavaScript:if(event.keyCode==13){detrans();}">
+<input type="button" name="aa" value="변환" onclick="detrans()">
+결과 :<input type="text" name="hangul2" id="hangul2" size="50">
+</body>
+</html>
