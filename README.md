@@ -355,7 +355,9 @@ Ctrl + B: 현재 커서에 있는 클래스 또는 메서드 안으로 들어가
 - 편집관련
 ```
 Ctrl + X 또는 Ctrl + Y: 한줄삭제
+Ctrl + C: 한줄복사 또는 선택된것 복사
 Ctrl + D: 현재 선택된 줄 내용 복사하여 아래에 삽입
+참고 link: http://hadesyi.github.io/2015/08/25/intellij-keymap/
 ```
 - 메서드 관련
 ```
