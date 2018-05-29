@@ -364,3 +364,7 @@ Ctrl + D: 현재 선택된 줄 내용 복사하여 아래에 삽입
 Ctrl + P: 메서드호출 작성시, 파라미터 변수 위치 및 키워드 힌트 표시
 Ctrl + J: 파이썬의 다양한 표현식 문법 생성 헬퍼
 ```
+
+# Docker 에 pdb 붙이기 위한 옵션
+docker run ... -a stdin -t <image> 으로 도커실행
+docker attach <container_id> 접속하여 확인
