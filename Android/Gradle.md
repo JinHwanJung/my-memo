@@ -50,4 +50,5 @@ SDK Home 등
 ./gradlew :app:dependencies
 
 ## 참고링크
-https://www.slideshare.net/koreacio/gradle-64458419
+- https://www.slideshare.net/koreacio/gradle-64458419
+- https://guides.gradle.org/building-android-apps/?_ga=2.52121193.1300548979.1528291190-326059834.1527966143
