@@ -81,6 +81,13 @@ pyenv local {가상환경 이름} .
 # 가상환경 접속 및 빠져나오기
 pyenv activate {가상환경 이름}  #가상환경 접속.
 pyenv deactivate  #가상환경 빠져나오기.
+
+# 가상환경에 설치된 모든 패키지 라이브러리 삭제
+pip freeze | xargs pip uninstall -y
+
+# 특정 패키지 삭제
+pip uninstall <패키지명> / pip uninstall -r <requirements.txt file>
+
 ```
 
 # Python Development Dependency Management

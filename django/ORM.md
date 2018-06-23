@@ -150,7 +150,7 @@
 > instance = Model.objects.get(pk=pk)
 > instance.delete()
 
-### 다죽삭제
+### 다중 삭제
 > Model.objects.filter(name='test', age='20').delete()
 
 ---
