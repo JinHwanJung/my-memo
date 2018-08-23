@@ -387,3 +387,10 @@ docker attach <container_id> 접속하여 확인
 
   - git stash pop stash@{index}
   : stash@{index} 꺼냄
+
+# django.tests.TestCase 와 test_plus.test.TestCase 차이
+- 상속관계: django.tests.TestCase --> test_plus.test.TestCase
+- test_plus.test.TestCase 주석: Django TestCase with helpful additional features
+- test_plus 에는 추가적으로,
+    - 여러가지 더 assert, requests, response_xxx 등 있음.
+    - TODO: assertNumQueriesLessThan 사용해보기
