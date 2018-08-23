@@ -15,6 +15,7 @@
     - [Tutorial HTML&CSS](#tutorial-html-and-css)
 - FavoriteShortcuts
     - [PycharmShortCuts](#pycharm-shortcuts)
+    - [man git-stash](#man-git-stash)
 # Python Environment 
 ## 파이썬 개발환경 세팅
 "Simple Python Version Management"<br/>
@@ -375,3 +376,14 @@ Ctrl + J: 파이썬의 다양한 표현식 문법 생성 헬퍼
 # Docker 에 pdb 붙이기 위한 옵션
 docker run ... -a stdin -t <image> 으로 도커실행
 docker attach <container_id> 접속하여 확인
+
+# man git-stash
+기본사용: git statsh (스택에 저장), git stash pop (가장최근 스택 꺼냄)
+  - git stash show -p
+  : 가장 최근의 것 보기
+
+  - git stash show -p stash@{index}
+  : stash@{index} 내용보기
+
+  - git stash pop stash@{index}
+  : stash@{index} 꺼냄
