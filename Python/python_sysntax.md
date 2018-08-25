@@ -87,4 +87,8 @@ with controlled_execution() as thing:
 - 복잡한 다중상속의 경우, overwrite에 대한 순서를 추적할 때는 mro() 함수를 사용하여 클래스가 파생된 순서의 목록을 얻어서 확인.
 - 메서드 탐색 순서(Method Resolution Order, MRO)
 ---
-# 
+
+# 시스템 환경변수 PYTHONPATH
+모듈 import 를 위한 파이썬 환경변수 PYTHONPATH 설정하기
+1. 프로젝트 루트에서 "export PYTHONPATH=${PWD}" 를 실행하여 환경변수 세팅 그때그때 해준다?
+2. virtualenv 를 사용하고 pip 또는 setup.py 를 작성하여 이용한다.

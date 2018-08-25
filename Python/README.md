@@ -106,6 +106,8 @@ pip는 Python 2.7.9 또는 Python 3.4 이상 버전을 설치하게 되면 설�
 pip freeze > requirements.txt
 # 패키지 리스트 불러오고 설치하기
 pip install -r requiremenets.txt
+# pip 업그레이드
+pip install --upgrade pip
 ```
 
 * 패키지 환경분리<br/>
