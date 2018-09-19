@@ -23,6 +23,7 @@
 
 * pyenv 설치(ubuntu)<br/>
 0. sudo apt-get update
+
 1. 의존성 패키지 설치
 ```bash
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
