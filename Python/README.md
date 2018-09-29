@@ -22,7 +22,11 @@
 로컬에 다양한 파이썬 버전을 설치하고 사용. 파이썬 버전에 대한 의존성 해결.
 
 * pyenv 설치(ubuntu)<br/>
-0. sudo apt-get update
+
+0. 우선 패키지 설치 이전에는 아래 명령 반드시 실행 
+```bash
+sudo apt-get update
+```
 
 1. 의존성 패키지 설치
 ```bash
@@ -35,11 +39,12 @@ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev li
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 ```
 
-3. ".bashrc" 에 하기 내용 추가
+3. 터미널에 아래 각각 실행하여 ~/.bashrc 에 필요한 내용 추가해주어야 함
 ```bash
-echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+cd ~
+sudo echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
+sudo echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+sudo echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 ```
 
 * pyenv 사용
@@ -54,7 +59,7 @@ pyenv versions
 # pyenv 로 설치된 개발환경 리스트 출력
 pyenv install --list
 
-# 버전 선택하여 사용
+# 버전 jinhwan@JungJinHwan:~/바탕화면/my-memo$ git p택하여 사용
 pyenv shell 3.6.2
 
 # 전역 파이썬 버전 설정
