@@ -2,6 +2,7 @@
     - [webpack 설치](#link-1)
 
 # link-1
+## webpack 설치
 ```bash
 # 글로벌로 설치
 yarn global add webpack
