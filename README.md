@@ -14,18 +14,13 @@ if [ "$branch" = "master" ]; then
 fi
 ```
 
-2. Make it executable
-```bash
-chmod +x .git/hooks/pre-commit
-```
-
-3. .git/config
+2. .git/config
 ```bash
 [branch "master"]
     mergeoptions = --no-ff
 ```
 
-4. .git/hooks/pre-push
+3. .git/hooks/pre-push
 ```
 #!/bin/bash
 protected_branch='master'
@@ -43,4 +38,10 @@ then
 else
     exit 0 # push will execute
 fi
+```
+
+4. Make it executable
+```bash
+chmod +x .git/hooks/pre-commit
+chmod +x .git/hooks/pre-push
 ```
