@@ -426,3 +426,93 @@ docker attach <container_id> 접속하여 확인
 - test_plus 에는 추가적으로,
     - 여러가지 더 assert, requests, response_xxx 등 있음.
     - TODO: assertNumQueriesLessThan 사용해보기
+
+# django ORM 테스트
+```python
+# Tested with Django 1.9.2
+import sys
+
+import django
+from django.apps import apps
+from django.apps.config import AppConfig
+from django.conf import settings
+from django.db import connections, models, DEFAULT_DB_ALIAS
+from django.db.models.base import ModelBase
+from django.db.models.functions import Concat, Value
+
+NAME = 'udjango'
+
+
+def main():
+    setup()
+
+    class Person(models.Model):
+        first_name = models.CharField(max_length=30)
+        last_name = models.CharField(max_length=30)
+
+    syncdb(Person)
+
+    Person.objects.create(first_name='Jimmy', last_name='Jones')
+    Person.objects.create(first_name='Bob', last_name='Brown')
+
+    print(Person.objects.annotate(
+        full_name=Concat('first_name',
+                         Value(' '),
+                         'last_name')).values_list('id', 'full_name'))
+    # >>> [(1, u'Jimmy Jones'), (2, u'Bob Brown')]
+
+
+def setup():
+    DB_FILE = NAME + '.db'
+    with open(DB_FILE, 'w'):
+        pass  # wipe the database
+    settings.configure(
+        DEBUG=True,
+        DATABASES={
+            DEFAULT_DB_ALIAS: {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': DB_FILE}},
+        LOGGING={'version': 1,
+                 'disable_existing_loggers': False,
+                 'formatters': {
+                    'debug': {
+                        'format': '%(asctime)s[%(levelname)s]'
+                                  '%(name)s.%(funcName)s(): %(message)s',
+                        'datefmt': '%Y-%m-%d %H:%M:%S'}},
+                 'handlers': {
+                    'console': {
+                        'level': 'DEBUG',
+                        'class': 'logging.StreamHandler',
+                        'formatter': 'debug'}},
+                 'root': {
+                    'handlers': ['console'],
+                    'level': 'WARN'},
+                 'loggers': {
+                    "django.db": {"level": "WARN"}}})
+    app_config = AppConfig(NAME, sys.modules['__main__'])
+    apps.populate([app_config])
+    django.setup()
+    original_new_func = ModelBase.__new__
+
+    @staticmethod
+    def patched_new(cls, name, bases, attrs):
+        if 'Meta' not in attrs:
+            class Meta:
+                app_label = NAME
+            attrs['Meta'] = Meta
+        return original_new_func(cls, name, bases, attrs)
+    ModelBase.__new__ = patched_new
+
+
+def syncdb(model):
+    """ Standard syncdb expects models to be in reliable locations.
+
+    Based on https://github.com/django/django/blob/1.9.3
+    /django/core/management/commands/migrate.py#L285
+    """
+    connection = connections[DEFAULT_DB_ALIAS]
+    with connection.schema_editor() as editor:
+        editor.create_model(model)
+
+main()
+```
