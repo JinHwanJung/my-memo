@@ -54,7 +54,7 @@ pyenv versions
 # pyenv 로 설치된 개발환경 리스트 출력
 pyenv install --list
 
-# 버전 jinhwan@JungJinHwan:~/바탕화면/my-memo$ git p택하여 사용
+# 버전 선택하여 사용
 pyenv shell 3.6.2
 
 # 전역 파이썬 버전 설정
