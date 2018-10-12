@@ -47,36 +47,6 @@ sudo echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 sudo echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 ```
 
-* pyenv 사용
-```bash
-{
-  "name": "webpack-practice",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
-}
-전을 pyenv 로 설치
-{
-  "name": "webpack-practice",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
-}
-
-{
-  "name": "webpack-practice",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
-}
-.2
-{
-  "name": "webpack-practice",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
-}
-
 # 지금 사용하고 있는 파이썬 버전확인
 pyenv versions
 
