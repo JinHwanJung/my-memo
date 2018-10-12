@@ -47,6 +47,7 @@ sudo echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 sudo echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 ```
 
+```bash
 # 지금 사용하고 있는 파이썬 버전확인
 pyenv versions
 
