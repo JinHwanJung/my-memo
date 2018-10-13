@@ -1,10 +1,10 @@
 
 # 자주 찾아보는 것들 정리
 
-### prevent master commit & push
+### 1. prevent master commit & push
 link: https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch
 
-1. .git/hooks/pre-commit
+ - .git/hooks/pre-commit
 ```bash
 #!/bin/sh
 branch="$(git rev-parse --abbrev-ref HEAD)"
@@ -15,7 +15,7 @@ if [ "$branch" = "master" ]; then
 fi
 ```
 
-2. .git/hooks/pre-push
+ -.git/hooks/pre-push
 ```
 #!/bin/bash
 protected_branch='master'
@@ -42,5 +42,5 @@ chmod +x .git/hooks/pre-push
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTY3OTM2NTFdfQ==
+eyJoaXN0b3J5IjpbLTE0MDc0MjUzLC0xMTU2NzkzNjUxXX0=
 -->
