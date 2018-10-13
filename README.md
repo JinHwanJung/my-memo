@@ -4,7 +4,7 @@
 ---
 
 <h1 id="자주-찾아보는-것들-정리">자주 찾아보는 것들 정리</h1>
-<h2 id="prevent-master-commit--push"> prevent master commit &amp; push</h2>
+<h2 id="prevent-master-commit--merge & push"> prevent master commit &amp; push</h2>
 <p>link: <a pushhttps://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch">https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch</a></p>
 <ol>
 <li>.git/hooks/pre-commit</li>
@@ -45,5 +45,5 @@ fi
 </code></pre>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1Njc1OTA3Ml19
+eyJoaXN0b3J5IjpbLTQ2MjM1Mjc2Nl19
 -->
