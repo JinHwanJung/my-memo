@@ -1,7 +1,7 @@
 # 자주 찾아보는 것들 정리
 
 ### prevent master commit & merge & push
-- link: https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch
+link: https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch
 
 1. .git/hooks/pre-commit
 ```bash
@@ -45,3 +45,6 @@ fi
 chmod +x .git/hooks/pre-commit
 chmod +x .git/hooks/pre-push
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTIxMDkxODY2ODVdfQ==
+-->
