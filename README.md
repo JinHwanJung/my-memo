@@ -35,13 +35,9 @@ else
 fi
 ```
 
-3. Make it executable
+ - make it executable
 ```bash
 chmod +x .git/hooks/pre-commit
 chmod +x .git/hooks/pre-push
 ```
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyODYzNDExOSwtMTQwNzQyNTMsLTExNT
-Y3OTM2NTFdfQ==
--->
