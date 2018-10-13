@@ -1,8 +1,8 @@
 
 # 자주 찾아보는 것들 정리
 
-### prevent master commit & merge & push
-- link: https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch
+### prevent master commit & push
+link: https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch
 
 1. .git/hooks/pre-commit
 ```bash
@@ -15,13 +15,7 @@ if [ "$branch" = "master" ]; then
 fi
 ```
 
-2. .git/config
-```bash
-[branch "master"]
-    mergeoptions = --no-ff
-```
-
-3. .git/hooks/pre-push
+2. .git/hooks/pre-push
 ```
 #!/bin/bash
 protected_branch='master'
@@ -41,12 +35,9 @@ else
 fi
 ```
 
-4. Make it executable
+3. Make it executable
 ```bash
 chmod +x .git/hooks/pre-commit
 chmod +x .git/hooks/pre-push
 ```
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTE1NTE3MjhdfQ==
--->
