@@ -20,7 +20,7 @@ fi
 #!/bin/bash
 protected_branch='master'
 current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
-ddddfafsadfa
+
 if [ $protected_branch = $current_branch ]
 then
     read -p "You're about to push master, is that what you intended? [y|n] " -n 1 -r < /dev/tty
@@ -43,6 +43,6 @@ chmod +x .git/hooks/pre-push
 
 <!--stackedit_data:
 eyJwcm9wZXJ0aWVzIjoiZXh0ZW5zaW9uczpcbiAgcHJlc2V0Oi
-BnZm1cbiIsImhpc3RvcnkiOlstNTg3NjQ0Mjg0LC0xMjM2MTE1
-NjcwLC0xNjUxMTc3NiwtMTIzNjExNTY3MF19
+BnZm1cbiIsImhpc3RvcnkiOlstMTIzNjExNTY3MCwtMTIzNjEx
+NTY3MCwtMTY1MTE3NzYsLTEyMzYxMTU2NzBdfQ==
 -->
