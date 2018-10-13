@@ -15,7 +15,7 @@ if [ "$branch" = "master" ]; then
 fi
 ```
 
- -.git/hooks/pre-push
+ - .git/hooks/pre-push
 ```
 #!/bin/bash
 protected_branch='master'
@@ -42,5 +42,6 @@ chmod +x .git/hooks/pre-push
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDc0MjUzLC0xMTU2NzkzNjUxXX0=
+eyJoaXN0b3J5IjpbMTUyODYzNDExOSwtMTQwNzQyNTMsLTExNT
+Y3OTM2NTFdfQ==
 -->
