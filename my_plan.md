@@ -7,6 +7,3 @@
 # Study TO-DO
 - 객체지향 OOP 5대원칙
 - 파이썬 알고리즘 github 이해하고 구현 연습
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjI0MzY1MF19
--->
