@@ -41,6 +41,3 @@ chmod +x .git/hooks/pre-commit
 chmod +x .git/hooks/pre-push
 ```
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTY3OTM2NTFdfQ==
--->
