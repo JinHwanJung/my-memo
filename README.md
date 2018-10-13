@@ -4,8 +4,8 @@
 ---
 
 <h1 id="자주-찾아보는-것들-정리">자주 찾아보는 것들 정리</h1>
-<h2 id="prevent-master-commit--push">1. prevent master commit &amp; push</h2>
-<p>link: <a href="https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch">https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch</a></p>
+<h2 id="prevent-master-commit--push"> prevent master commit &amp; push</h2>
+<p>link: <a pushhttps://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch">https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch</a></p>
 <ol>
 <li>.git/hooks/pre-commit</li>
 </ol>
@@ -28,7 +28,7 @@ if [ $protected_branch = $current_branch ]
 then
     read -p "You're about to push master, is that what you intended? [y|n] " -n 1 -r &lt; /dev/tty
     echo
-    if echo $REPLY | grep -E '^[Yy]$' &gt; /dev/null
+    if echo $REPLY | grep -E '^[Yy]$' &gt;> /dev/null
     then
         exit 0 # push will execute
     fi
@@ -44,3 +44,6 @@ fi
 <span class="token function">chmod</span> +x .git/hooks/pre-push
 </code></pre>
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTc1Njc1OTA3Ml19
+-->
