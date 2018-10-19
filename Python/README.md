@@ -487,3 +487,5 @@ def syncdb(model):
 
 main()
 ```
+
+# 파이썬 학습 : https://www.programiz.com/
