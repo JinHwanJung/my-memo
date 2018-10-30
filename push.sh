@@ -1,3 +1,3 @@
 git add .
-git commit -m "'my-memo' commit on script"
+git commit -m "updated from script"
 git push origin master
