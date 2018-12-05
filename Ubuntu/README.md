@@ -41,3 +41,12 @@ sudo vi /etc/profile.d/java.sh
 # 스크립트 파일을 하나 만들고 아래의 내용 추가
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 ```
+
+- git tracking list에서 파일 제거하기
+```
+# tracking list 보기
+git ls-files
+
+# tracking list 에서 제거하기 
+git rm --cached <file>
+```
