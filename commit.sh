@@ -7,6 +7,8 @@ else
     msg=`date '+%Y-%m-%d %H:%M:%S'`
 fi
 
+git checkout -b "$msg"
 git add .
 git commit -m "$msg"
-git push origin master
+git push origin "$msg"
+git checkout master
