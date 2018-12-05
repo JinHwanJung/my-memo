@@ -4,7 +4,7 @@ if [ "$1" ];
 then
     msg=$1
 else
-    msg=`date '+%Y-%m-%d %H:%M:%S'`
+    msg=`date +%Y%m%d_%H%M%S`
 fi
 
 git checkout -b "$msg"
