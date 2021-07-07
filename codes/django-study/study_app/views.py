@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from study.serializers import AddSerializer
+from study_app.serializers import AddSerializer
 
 
 class AddAPI(APIView):
