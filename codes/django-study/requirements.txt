@@ -1,0 +1,8 @@
+Django
+djangorestframework
+psycopg2-binary
+
+pytest
+pytest-django
+
+ipython
